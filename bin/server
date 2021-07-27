@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PROJECT_ROOT="$( cd "$(dirname "$0"/..)" >/dev/null 2>&1 ; pwd -P )"
+
+set -euo pipefail
+IFS=$'\n\t'
+set -xe
+cd $PROJECT_ROOT
+# invoke the application with default webserver
+bundle exec ruby travel.rb -o 0.0.0.0 -p 8080

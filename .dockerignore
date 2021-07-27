@@ -1,0 +1,7 @@
+.idea
+Gemfile.lock
+vendor
+.bundle
+
+# script output files
+*.out
