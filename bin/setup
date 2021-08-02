@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PROJECT_ROOT="$( cd "$(dirname "$0"/..)" >/dev/null 2>&1 ; pwd -P )"
+
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+bundle config --local path ${PROJECT_ROOT}/vendor/bundle
+bundle install
