@@ -179,13 +179,15 @@ class Storage
 
     begin
       bookings = users_collection.lookup_in(user, [LookupInSpec.get("bookings")])
-      booked_flights = bookings.content(0)
-
+      
       rows = []
-      booked_flights.each do |flight|
-        rows.push(flights_collection.get(flight).content)
+      if bookings.exists?(0)
+        booked_flights = bookings.content(0)
+
+        booked_flights.each do |flight|
+          rows.push(flights_collection.get(flight).content)
+        end
       end
-      puts rows
     rescue Error::DocumentNotFound => e
       raise UserNotFoundError.new
     else
