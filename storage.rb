@@ -191,7 +191,7 @@ class Storage
     rescue Error::DocumentNotFound => e
       raise UserNotFoundError.new
     else
-      context = "KV get - scoped to #{agent_scope.name}.user: for #{rows.length} bookings in document #{user}"
+      context = "KV get - scoped to #{agent_scope.name}.users: for #{rows.length} bookings in document #{user}"
       return { 'context' => [context], 'data' => rows }
     end
   end
@@ -214,7 +214,7 @@ class Storage
     rescue Error::DocumentNotFound => e
       raise UserNotFoundError.new
     else
-      context = "KV update - scoped to #{agent_scope.name}.user: for bookings field in document #{user}"
+      context = "KV update - scoped to #{agent_scope.name}.users: for bookings field in document #{user}"
       return { 'context' => [context], 'data' => { 'added' => [new_flight] } }
     end
   end
