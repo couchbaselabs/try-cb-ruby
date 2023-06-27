@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "couchbase", "3.2.0", :source => "https://packages.couchbase.com/clients/ruby/3.0.0/"
+gem "couchbase", "3.2.0"
 gem "sinatra"
 gem "sinatra-contrib"
 gem "sinatra-cors"
