@@ -36,55 +36,8 @@ When you run the application for the first time, it pulls/builds the relevant Do
 
 This starts the backend, Couchbase Server 7.0.0 and the Vue frontend app.
 
-You can find the backend API on http://localhost:8080/, the UI on
+You can find the backend API at http://localhost:8080/, the UI at
 http://localhost:8081/ and Couchbase Server at http://localhost:8091/
-
-    ❯ docker compose --profile local up
-
-    Creating network "try-cb-ruby_default" with the default driver
-    Pulling db (couchbase/server-sandbox:7.0.0)...
-    ...
-    Building backend
-    ...
-    Building frontend
-    ...
-    Creating couchbase-sandbox-7.0.0      ... done
-    Creating try-cb-api                   ... done
-    Creating try-cb-fe                    ... done
-    Attaching to couchbase-sandbox-7.0.0, try-cb-api, try-cb-fe
-    couchbase-sandbox-7.0.0 | Starting Couchbase Server -- Web UI available at http://<ip>:8091
-    couchbase-sandbox-7.0.0 | and logs available in /opt/couchbase/var/lib/couchbase/logs
-    couchbase-sandbox-7.0.0 | Configuring Couchbase Server.  Please wait (~60 sec)...
-    try-cb-api  | wait-for-couchbase: checking http://db:8091/pools/default/buckets/travel-sample/
-    try-cb-api  | wait-for-couchbase: polling for '.scopes | map(.name) | contains(["inventory", "
-    try-cb-fe   | wait-for-it: waiting 400 seconds for backend:8080
-    try-cb-api  | wait-for-couchbase: ...
-    couchbase-sandbox-7.0.0 | Configuration completed!
-    couchbase-sandbox-7.0.0 | Couchbase Admin UI: http://localhost:8091
-    couchbase-sandbox-7.0.0 | Login credentials: Administrator / password
-    try-cb-api  | wait-for-couchbase: checking http://db:8094/api/cfg
-    try-cb-api  | wait-for-couchbase: polling for '.status == "ok"'
-    try-cb-api  | wait-for-couchbase: checking http://db:8094/api/index/hotels-index
-    try-cb-api  | wait-for-couchbase: polling for '.status == "ok"'
-    try-cb-api  | wait-for-couchbase: Failure
-    try-cb-api  | wait-for-couchbase: Creating hotels-index...
-    try-cb-api  | wait-for-couchbase: checking http://db:8094/api/index/hotels-index/count
-    try-cb-api  | wait-for-couchbase: polling for '.count >= 917'
-    try-cb-api  | wait-for-couchbase: ...
-    ...
-    try-cb-api  | wait-for-couchbase: checking http://db:9102/api/v1/stats
-    try-cb-api  | wait-for-couchbase: polling for '.indexer.indexer_state == "Active"'
-    try-cb-api  | wait-for-couchbase: polling for '. | keys | contains(["travel-sample:def_airport
-    try-cb-api  | wait-for-couchbase: polling for '. | del(.indexer) | del(.["travel-sample:def_na
-    try-cb-api  | wait-for-couchbase: polling for '. | del(.indexer) | map(.num_pending_requests =
-    try-cb-api  | Connecting to backend Couchbase server db with Administrator/password
-    try-cb-api  | Example app listening on port 8080!
-    try-cb-fe   | wait-for-it: backend:8080 is available after 121 seconds
-    try-cb-fe   |
-    try-cb-fe   | > try-cb-frontend-v2@0.1.0 serve
-    try-cb-fe   | > vue-cli-service serve --port 8081
-    try-cb-fe   |
-    try-cb-fe   |  INFO  Starting development server...
 
 You should then be able to browse the UI, search for airports and get flight route information.
 
