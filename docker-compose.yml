@@ -8,7 +8,11 @@ services:
     ports:
       - 8080:8080
     container_name: try-cb-api
-  
+    volumes:
+      - .:/app
+    profiles:
+      - local
+    
   frontend:
       build: "https://github.com/couchbaselabs/try-cb-frontend-v2.git#7.0"
       depends_on:
@@ -17,6 +21,8 @@ services:
         - 8081:8081
       container_name: try-cb-fe
       entrypoint: ["wait-for-it", "backend:8080", "--timeout=400", "--strict", "--", "npm", "run", "serve"]
+      profiles:
+        - local
 
   db:
     image: couchbase/server-sandbox:7.0.0
@@ -28,6 +34,8 @@ services:
       - "8091"
       - "8094"
     container_name: couchbase-sandbox-7.0.0
+    profiles:
+      - local
 
   test:
     build: "https://github.com/couchbaselabs/try-cb-test.git#main"
